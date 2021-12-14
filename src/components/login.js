@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useContext, useState } from "react";
 import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useHistory } from "react-router";
+//import { useHistory } from "react-router";
 import * as YUP from "yup";
 import { context } from "../App";
 
@@ -11,15 +11,14 @@ import { context } from "../App";
 const schema = YUP.object().shape({
   email: YUP.string().required("Please enter your email id"),
   password: YUP.string()
-    .min(5, "password should be more than 4 characters")
+    .min(4, "password should be minimum  4 characters")
     .required("please enter your password"),
 });
 
 export default function Login() {
-  const history = useHistory();
+  //const history = useHistory();
   const [log, setLog] = useContext(context);
   console.log(log);
-  const [dummy, setDummy] = useState(false);
 
   const loginAccount = async (values) => {
     try {
@@ -33,10 +32,12 @@ export default function Login() {
       if (response.status === 200) {
         window.localStorage.setItem("auth-token", response.data.token);
       }
+      alert("Login-Success");
       return true;
       //   setInfo("User Login Successfully");
     } catch (err) {
-      setDummy(true);
+      alert("invalid crendtials");
+
       //   return false;
     }
   };
@@ -55,12 +56,11 @@ export default function Login() {
             }}
             validationSchema={schema}
             onSubmit={async (values) => {
-              let reset = await loginAccount(values);
+              loginAccount(values);
               //   if reset is true
-              if (reset) {
-                setLog(true);
-                history.push("/protected");
-              }
+              // if (reset) {
+              //   history.push("/protected");
+              // }
             }}
           >
             {() => {
@@ -111,13 +111,6 @@ export default function Login() {
               );
             }}
           </Formik>
-          {dummy ? (
-            <div className="d-flex justify-content-center text-danger">
-              <h3>Email or Password is wrong</h3>
-            </div>
-          ) : (
-            <div></div>
-          )}
         </Card.Body>
       </Card>
     </div>

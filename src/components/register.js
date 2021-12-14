@@ -5,18 +5,16 @@ import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import * as YUP from "yup";
 import "./css/register.css";
-import { useState } from "react";
 
 const schema = YUP.object().shape({
   name: YUP.string().required("Please enter Name"),
   email: YUP.string().email().required("Please Enter your Email"),
   password: YUP.string()
-    .min(5, "Password should be greater than 4 characters")
+    .min(4, "Password should be minimum 4 characters")
     .required("Enter Password"),
 });
 
 export default function Register() {
-  const [info, setInfo] = useState("");
   const createAccount = async (values) => {
     try {
       const response = await axios.post(
@@ -28,8 +26,9 @@ export default function Register() {
         }
       );
       console.log(response);
-      setInfo("User Registered Successfully");
+      alert("User Registered Successfully");
     } catch (err) {
+      alert("Email-id already exists");
       console.log(err);
     }
   };
@@ -106,9 +105,6 @@ export default function Register() {
               );
             }}
           </Formik>
-          <div className="mt-3 text-center text-success">
-            <h3>{info}</h3>
-          </div>
         </Card.Body>
       </Card>
     </div>
