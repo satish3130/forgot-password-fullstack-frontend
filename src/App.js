@@ -6,7 +6,6 @@ import Emailsent from "./components/emailSent";
 import Forgotpassword from "./components/forgotPassword";
 import Login from "./components/login";
 import Passwordresetsuccessfull from "./components/passwordResetSuccessfull";
-import Protected from "./components/protected";
 import Register from "./components/register";
 
 export const context = React.createContext();
@@ -20,7 +19,6 @@ function App() {
           <context.Provider value={[log, setLog]}>
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-            <Route path="/protected" component={Protected} />
             <Route
               path="/users/forgot-password/:userid/:token"
               component={Changepassword}
