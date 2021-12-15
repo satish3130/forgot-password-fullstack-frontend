@@ -1,11 +1,10 @@
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useContext } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 //import { useHistory } from "react-router";
 import * as YUP from "yup";
-import { context } from "../App";
 
 // schema
 const schema = YUP.object().shape({
@@ -17,8 +16,6 @@ const schema = YUP.object().shape({
 
 export default function Login() {
   //const history = useHistory();
-  const [log, setLog] = useContext(context);
-  console.log(log);
 
   const loginAccount = async (values) => {
     try {
