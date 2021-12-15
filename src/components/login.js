@@ -100,9 +100,6 @@ export default function Login() {
                     <div>
                       <NavLink to="/register">New Here? Register</NavLink>
                     </div>
-                    <div>
-                      <NavLink to="forgotpassword">Forgot Password?</NavLink>
-                    </div>
                   </div>
                 </Form>
               );
