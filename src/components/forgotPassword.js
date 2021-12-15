@@ -44,6 +44,7 @@ export default function Forgotpassword() {
               if (reset) {
                 history.push("/emailsent");
               } else {
+                alert("user not exist");
                 resetForm();
               }
             }}
@@ -75,7 +76,6 @@ export default function Forgotpassword() {
           </Formik>
           {dummy ? (
             <div className="mt-3 d-flex justify-content-between">
-              <h4 className="text-danger">User does not Exist</h4>
               <NavLink to="/register">Register Here</NavLink>
             </div>
           ) : (
