@@ -5,6 +5,7 @@ import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 //import { useHistory } from "react-router";
 import * as YUP from "yup";
+import "../App.css";
 
 // schema
 const schema = YUP.object().shape({
@@ -40,12 +41,9 @@ export default function Login() {
   };
 
   return (
-    <div className="d-flex justify-content-center ">
-      <Card>
-        <Card.Header className="text-center">
-          <h4>Login</h4>
-        </Card.Header>
-        <Card.Body>
+    <div className="d-flex justify-content-center login_content">
+      <div>
+        <div className="login">
           <Formik
             initialValues={{
               email: "",
@@ -72,6 +70,12 @@ export default function Login() {
                       type="text"
                       name="email"
                       component="input"
+                      placeHolder="Email"
+                      style={{
+                        backgroundColor: "#060d20",
+                        border: "1px solid  rgb(38, 83, 79)",
+                        color: "rgb(235, 226, 226)",
+                      }}
                     />
                     <div>
                       <ErrorMessage name="email" />
@@ -86,27 +90,46 @@ export default function Login() {
                       type="password"
                       name="password"
                       component="input"
+                      placeHolder="password"
+                      style={{
+                        backgroundColor: "#060d20",
+                        border: "1px solid rgb(38, 83, 79)",
+                        color: "rgb(235, 226, 226)",
+                      }}
                     />
                     <div>
                       <ErrorMessage name="password" />
                     </div>
                   </div>
-                  <div className="mt-3 d-flex justify-content-center">
-                    <button type="submit" className="btn btn-primary">
-                      Login
+                  <div className="mt-4 d-flex justify-content-center ">
+                    <button
+                      type="submit"
+                      className="btn btn-primary button"
+                      style={{
+                        backgroundColor: "rgb(18, 126, 115)",
+                        color: "rgb(235, 226, 226)",
+                        border: "none",
+                      }}
+                    >
+                      LOGIN
                     </button>
                   </div>
                   <div className="mt-3 d-flex justify-content-between">
                     <div>
-                      <NavLink to="/register">New Here? Register</NavLink>
+                      <NavLink
+                        style={{ color: "rgb(235, 226, 226)" }}
+                        to="/register"
+                      >
+                        New Here? Register
+                      </NavLink>
                     </div>
                   </div>
                 </Form>
               );
             }}
           </Formik>
-        </Card.Body>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }

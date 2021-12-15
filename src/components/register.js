@@ -33,12 +33,9 @@ export default function Register() {
     }
   };
   return (
-    <div className="card-container d-flex justify-content-center ">
-      <Card className="card">
-        <Card.Header className="text-center">
-          <h4>Create Account</h4>
-        </Card.Header>
-        <Card.Body>
+    <div className="card-container d-flex justify-content-center login_content ">
+      <div className="login">
+        <div className="">
           <Formik
             initialValues={{
               name: "",
@@ -58,10 +55,16 @@ export default function Register() {
                   <div className="mb-3">
                     <label>Name</label>
                     <Field
-                      className="form-control"
+                      className="form-control register_form"
                       type="text"
                       name="name"
                       component="input"
+                      placeHolder="Name"
+                      style={{
+                        backgroundColor: "#060d20",
+                        border: "1px solid rgb(38, 83, 79)",
+                        color: "rgb(235, 226, 226)",
+                      }}
                     />
                     <div>
                       <ErrorMessage className="text-danger" name="name" />
@@ -76,6 +79,12 @@ export default function Register() {
                       type="text"
                       name="email"
                       component="input"
+                      placeHolder="Email"
+                      style={{
+                        backgroundColor: "#060d20",
+                        border: "1px solid rgb(38, 83, 79)",
+                        color: "rgb(235, 226, 226)",
+                      }}
                     />
                     <div>
                       <ErrorMessage name="email" />
@@ -90,23 +99,38 @@ export default function Register() {
                       type="password"
                       name="password"
                       component="input"
+                      placeHolder="password"
+                      style={{
+                        backgroundColor: "#060d20",
+                        border: "1px solid rgb(38, 83, 79)",
+                        color: "rgb(235, 226, 226)",
+                      }}
                     />
                     <div>
                       <ErrorMessage name="password" />
                     </div>
                   </div>
                   <div className="mt-2 d-flex justify-content-between">
-                    <button type="submit" className="btn btn-primary">
-                      Submit
+                    <button
+                      type="submit"
+                      className="btn btn-primary button"
+                      style={{
+                        backgroundColor: "rgb(18, 126, 115)",
+                        border: "none",
+                      }}
+                    >
+                      SIGNUP
                     </button>
-                    <NavLink to="/login">Go to Login</NavLink>
                   </div>
+                  <NavLink style={{ color: "rgb(235, 226, 226)" }} to="/login">
+                    Go to Login
+                  </NavLink>
                 </Form>
               );
             }}
           </Formik>
-        </Card.Body>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,8 +1,30 @@
 .App {
   height: 100vh;
   width: 100vw;
-  background-color: aqua;
+  background-color: #060d20;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgb(235, 226, 226);
+}
+.login {
+  /* background-color: aqua; */
+}
+.button {
+  width: 25rem;
+  background-color: rgb(18, 126, 115);
+}
+.login_content {
+  width: 25rem;
+  /* background-color: #060d20; */
+}
+input {
+  width: 25rem;
+  /* background-color: rgb(38, 83, 79);  */
+}
+input:focus {
+  outline: none !important;
+}
+.register_form {
+  outline: none !important;
 }
