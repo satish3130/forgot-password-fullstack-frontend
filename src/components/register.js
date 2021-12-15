@@ -33,7 +33,7 @@ export default function Register() {
     }
   };
   return (
-    <div className="card-container d-flex justify-content-center mt-5">
+    <div className="card-container d-flex justify-content-center ">
       <Card className="card">
         <Card.Header className="text-center">
           <h4>Create Account</h4>

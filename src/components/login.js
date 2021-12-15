@@ -40,7 +40,7 @@ export default function Login() {
   };
 
   return (
-    <div className="d-flex justify-content-center mt-5">
+    <div className="d-flex justify-content-center ">
       <Card>
         <Card.Header className="text-center">
           <h4>Login</h4>
