@@ -1,7 +1,6 @@
 import axios from "axios";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import React from "react";
-import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import * as YUP from "yup";
 import "./css/register.css";
